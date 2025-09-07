@@ -67,4 +67,8 @@ export class PokemonService {
     if (!pokemon) throw new NotFoundException(`Pokemon with id "${id}" not found`);
     return pokemon;
   }
+
+  async createMany(pokemons: CreatePokemonDto[]) {
+    await this.pokemonModel.insertMany(pokemons);
+  }
 }
